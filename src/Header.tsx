@@ -77,7 +77,7 @@ export const HeaderBreadcrumb: FC<HeaderBreadcrumbProps> = (
         </Text>
       }
       fontSize="xs"
-      color="gray.700"
+      color="gray.600"
       {...breadcrumbProps}
     />
   );

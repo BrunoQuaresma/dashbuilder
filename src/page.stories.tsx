@@ -10,8 +10,10 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Link,
+  Grid,
 } from "@chakra-ui/react";
 import { FC, PropsWithChildren } from "react";
+import { Data, DataFluid, DataGrid, DataInfo, DataLabel } from "./Data";
 import {
   Header,
   HeaderGroup,
@@ -120,34 +122,17 @@ const ResourceTemplate: FC<PropsWithChildren> = ({ children }) => (
     </Header>
 
     <Main>
-      <TableContainer borderWidth={1} rounded="md">
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            <Tr>
-              <Td>inches</Td>
-              <Td>millimetres (mm)</Td>
-              <Td isNumeric>25.4</Td>
-            </Tr>
-            <Tr>
-              <Td>feet</Td>
-              <Td>centimetres (cm)</Td>
-              <Td isNumeric>30.48</Td>
-            </Tr>
-            <Tr>
-              <Td>yards</Td>
-              <Td>metres (m)</Td>
-              <Td isNumeric>0.91444</Td>
-            </Tr>
-          </Tbody>
-        </Table>
-      </TableContainer>
+      <DataFluid>
+        <Data>
+          <DataLabel>User</DataLabel>
+          <DataInfo>Jone Doe</DataInfo>
+        </Data>
+
+        <Data>
+          <DataLabel>Paid at</DataLabel>
+          <DataInfo>02/27/2023 at 07:10PM</DataInfo>
+        </Data>
+      </DataFluid>
     </Main>
   </>
 );
