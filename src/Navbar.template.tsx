@@ -18,11 +18,11 @@ export const NavbarTemplate: ComponentStory<typeof Navbar> = () => (
     </NavbarLogo>
 
     <NavbarLinks>
-      <NavbarLink isActive href="#users">
-        Users
-      </NavbarLink>
+      <NavbarLink href="#users">Users</NavbarLink>
       <NavbarLink href="#logs">Logs</NavbarLink>
-      <NavbarLink href="#payments">Payments</NavbarLink>
+      <NavbarLink isActive href="#payments">
+        Payments
+      </NavbarLink>
       <NavbarLink href="#settings">Settings</NavbarLink>
     </NavbarLinks>
 

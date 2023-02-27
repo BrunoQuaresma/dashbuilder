@@ -16,7 +16,9 @@ export const HeaderTemplate: ComponentStory<typeof Header> = () => (
     </HeaderGroup>
 
     <HeaderRight>
-      <Button size="sm">Settings</Button>
+      <Button size="sm" variant="outline">
+        Settings
+      </Button>
       <Button size="sm" colorScheme="blue">
         Add payment
       </Button>
