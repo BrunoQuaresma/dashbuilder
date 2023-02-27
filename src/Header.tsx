@@ -35,7 +35,8 @@ export const HeaderTitle: FC<HeaderTitleProps> = (headingProps) => {
     <Heading
       as="h1"
       display="flex"
-      flexDir="column"
+      alignItems="center"
+      gap={3}
       fontSize="3xl"
       fontWeight="medium"
       {...headingProps}
@@ -46,7 +47,7 @@ export const HeaderTitle: FC<HeaderTitleProps> = (headingProps) => {
 export type HeaderSubtitleProps = ComponentProps<typeof Text>;
 
 export const HeaderSubtitle: FC<HeaderSubtitleProps> = (textProps) => {
-  return <Text as="span" fontSize="md" color="gray.500" {...textProps} />;
+  return <Text as="span" fontSize="md" color="gray.600" {...textProps} />;
 };
 
 export type HeaderRightProps = ComponentProps<typeof Box>;

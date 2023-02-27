@@ -23,6 +23,7 @@ import {
 import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import { NavbarTemplate } from "./Navbar.template";
+import { Tag } from "./Tag";
 
 export default {
   component: Navbar,
@@ -102,15 +103,18 @@ const ResourceTemplate: FC<PropsWithChildren> = ({ children }) => (
           </BreadcrumbItem>
         </HeaderBreadcrumb>
 
-        <HeaderTitle>Jone's payment</HeaderTitle>
+        <HeaderTitle>
+          Jone's payment
+          <Tag colorScheme="green">Paid</Tag>
+        </HeaderTitle>
       </HeaderGroup>
 
       <HeaderRight>
         <Button size="sm" variant="outline">
-          Settings
+          Edit
         </Button>
-        <Button size="sm" colorScheme="blue">
-          Add payment
+        <Button size="sm" colorScheme="red">
+          Remove
         </Button>
       </HeaderRight>
     </Header>

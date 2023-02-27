@@ -42,9 +42,9 @@ export const NavbarLink: FC<NavbarLinkProps> = ({ isActive, ...linkProps }) => {
       h="full"
       display="flex"
       alignItems="center"
-      color={isActive ? "gray.700" : "gray.500"}
+      color={isActive ? "gray.900" : "gray.600"}
       pointerEvents={isActive ? "none" : "auto"}
-      _hover={{ textDecor: "none", color: "gray.700" }}
+      _hover={{ textDecor: "none", color: "gray.900" }}
       position="relative"
       _after={{
         position: "absolute",
