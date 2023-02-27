@@ -1,4 +1,4 @@
-import { Stack, Button, Text } from "@chakra-ui/react";
+import { Text, MenuItem } from "@chakra-ui/react";
 import { ComponentStory } from "@storybook/react";
 import {
   Navbar,
@@ -7,6 +7,7 @@ import {
   NavbarLink,
   NavbarRight,
 } from "./Navbar";
+import { UserMenu } from "./UserMenu";
 
 export const NavbarTemplate: ComponentStory<typeof Navbar> = () => (
   <Navbar>
@@ -26,12 +27,18 @@ export const NavbarTemplate: ComponentStory<typeof Navbar> = () => (
     </NavbarLinks>
 
     <NavbarRight>
-      <Stack direction="row">
-        <Button size="sm" variant="outline">
-          Logout
-        </Button>
-        <Button size="sm">Profile</Button>
-      </Stack>
+      <UserMenu
+        avatarProps={{
+          name: "Jane Doe",
+          src: "https://i.pravatar.cc/150?img=2",
+        }}
+      >
+        <MenuItem>Download</MenuItem>
+        <MenuItem>Create a Copy</MenuItem>
+        <MenuItem>Mark as Draft</MenuItem>
+        <MenuItem>Delete</MenuItem>
+        <MenuItem>Attend a Workshop</MenuItem>
+      </UserMenu>
     </NavbarRight>
   </Navbar>
 );
