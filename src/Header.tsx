@@ -7,9 +7,12 @@ export type HeaderProps = ComponentProps<typeof Box>;
 export const Header: FC<HeaderProps> = ({ children, ...boxProps }) => {
   return (
     <Box
+      py={8}
       as="header"
       display="flex"
       alignItems="center"
+      borderBottomWidth={1}
+      borderColor="gray.200"
       px={SIDE_PADDING}
       {...boxProps}
     >
@@ -45,9 +48,9 @@ export const HeaderSubtitle: FC<HeaderSubtitleProps> = (textProps) => {
   return <Text as="span" fontSize="lg" color="gray.500" {...textProps} />;
 };
 
-export type HeaderActionsProps = ComponentProps<typeof Box>;
+export type HeaderRightProps = ComponentProps<typeof Box>;
 
-export const HeaderActions: FC<HeaderActionsProps> = ({
+export const HeaderRight: FC<HeaderRightProps> = ({
   children,
   ...boxProps
 }) => {
