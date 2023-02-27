@@ -1,4 +1,9 @@
-import { Button } from "@chakra-ui/react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Button,
+} from "@chakra-ui/react";
 import { ComponentStory } from "@storybook/react";
 import {
   Header,
@@ -6,6 +11,7 @@ import {
   HeaderTitle,
   HeaderSubtitle,
   HeaderRight,
+  HeaderCrumb,
 } from "./Header";
 
 export const HeaderTemplate: ComponentStory<typeof Header> = () => (

@@ -1,15 +1,25 @@
 import {
   TableContainer,
   Table,
-  TableCaption,
   Thead,
   Tr,
   Th,
   Tbody,
   Td,
-  Tfoot,
+  Button,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Link,
 } from "@chakra-ui/react";
-import { HeaderTemplate } from "./Header.template";
+import { FC, PropsWithChildren } from "react";
+import {
+  Header,
+  HeaderGroup,
+  HeaderTitle,
+  HeaderSubtitle,
+  HeaderRight,
+  HeaderBreadcrumb,
+} from "./Header";
 import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import { NavbarTemplate } from "./Navbar.template";
@@ -19,10 +29,27 @@ export default {
   title: "Pages/Dashboard",
 };
 
-const Template = () => (
+const ResourcesTemplate: FC<PropsWithChildren> = ({ children }) => (
   <>
     <NavbarTemplate />
-    <HeaderTemplate />
+    <Header>
+      <HeaderGroup>
+        <HeaderTitle>Payments</HeaderTitle>
+        <HeaderSubtitle>
+          See all the payments. <Link href="#">Learn more</Link>.
+        </HeaderSubtitle>
+      </HeaderGroup>
+
+      <HeaderRight>
+        <Button size="sm" variant="outline">
+          Settings
+        </Button>
+        <Button size="sm" colorScheme="blue">
+          Add payment
+        </Button>
+      </HeaderRight>
+    </Header>
+
     <Main>
       <TableContainer borderWidth={1} rounded="md">
         <Table>
@@ -56,4 +83,69 @@ const Template = () => (
   </>
 );
 
-export const Example = Template.bind({});
+export const ResourcesPage = ResourcesTemplate.bind({});
+
+const ResourceTemplate: FC<PropsWithChildren> = ({ children }) => (
+  <>
+    <NavbarTemplate />
+
+    <Header>
+      <HeaderGroup>
+        <HeaderBreadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">Payments</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#" isCurrentPage>
+              12422323
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </HeaderBreadcrumb>
+
+        <HeaderTitle>Jone's payment</HeaderTitle>
+      </HeaderGroup>
+
+      <HeaderRight>
+        <Button size="sm" variant="outline">
+          Settings
+        </Button>
+        <Button size="sm" colorScheme="blue">
+          Add payment
+        </Button>
+      </HeaderRight>
+    </Header>
+
+    <Main>
+      <TableContainer borderWidth={1} rounded="md">
+        <Table>
+          <Thead>
+            <Tr>
+              <Th>To convert</Th>
+              <Th>into</Th>
+              <Th isNumeric>multiply by</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td>inches</Td>
+              <Td>millimetres (mm)</Td>
+              <Td isNumeric>25.4</Td>
+            </Tr>
+            <Tr>
+              <Td>feet</Td>
+              <Td>centimetres (cm)</Td>
+              <Td isNumeric>30.48</Td>
+            </Tr>
+            <Tr>
+              <Td>yards</Td>
+              <Td>metres (m)</Td>
+              <Td isNumeric>0.91444</Td>
+            </Tr>
+          </Tbody>
+        </Table>
+      </TableContainer>
+    </Main>
+  </>
+);
+
+export const ResourcePage = ResourceTemplate.bind({});
