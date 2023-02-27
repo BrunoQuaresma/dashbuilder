@@ -1,11 +1,18 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { ComponentProps, FC } from "react";
+import { SIDE_PADDING } from "./constants";
 
 export type HeaderProps = ComponentProps<typeof Box>;
 
 export const Header: FC<HeaderProps> = ({ children, ...boxProps }) => {
   return (
-    <Box as="header" display="flex" alignItems="center" {...boxProps}>
+    <Box
+      as="header"
+      display="flex"
+      alignItems="center"
+      px={SIDE_PADDING}
+      {...boxProps}
+    >
       {children}
     </Box>
   );
