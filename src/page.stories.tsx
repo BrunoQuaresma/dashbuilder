@@ -25,6 +25,7 @@ import {
 import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import { NavbarTemplate } from "./Navbar.template";
+import { NextButton, Pagination, PreviousButton } from "./Pagination";
 import { Tag } from "./Tag";
 
 export default {
@@ -82,6 +83,11 @@ const ResourcesTemplate: FC<PropsWithChildren> = ({ children }) => (
           </Tbody>
         </Table>
       </TableContainer>
+
+      <Pagination mt={4}>
+        <PreviousButton />
+        <NextButton />
+      </Pagination>
     </Main>
   </>
 );
