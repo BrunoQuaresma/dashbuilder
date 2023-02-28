@@ -26,6 +26,7 @@ import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import { NavbarTemplate } from "./Navbar.template";
 import { NextButton, Pagination, PreviousButton } from "./Pagination";
+import { SearchField } from "./SearchField";
 import { Tag } from "./Tag";
 
 export default {
@@ -55,7 +56,9 @@ const ResourcesTemplate: FC<PropsWithChildren> = ({ children }) => (
     </Header>
 
     <Main>
-      <TableContainer borderWidth={1} rounded="md">
+      <SearchField />
+
+      <TableContainer borderWidth={1} rounded="md" mt={8}>
         <Table>
           <Thead>
             <Tr>
