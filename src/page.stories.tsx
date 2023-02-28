@@ -2,7 +2,6 @@ import {
   TableContainer,
   Table,
   Thead,
-  Tr,
   Th,
   Tbody,
   Td,
@@ -10,10 +9,10 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Link,
-  Grid,
+  Tr,
 } from "@chakra-ui/react";
 import { FC, PropsWithChildren } from "react";
-import { Data, DataFluid, DataGrid, DataInfo, DataLabel } from "./Data";
+import { Data, DataFluid, DataInfo, DataLabel } from "./Data";
 import {
   Header,
   HeaderGroup,
@@ -28,6 +27,7 @@ import { NavbarTemplate } from "./Navbar.template";
 import { NextButton, Pagination, PreviousButton } from "./Pagination";
 import { SearchField } from "./SearchField";
 import { Tag } from "./Tag";
+import { ClickableRow } from "./ClickableRow";
 
 export default {
   component: Navbar,
@@ -68,21 +68,21 @@ const ResourcesTemplate: FC<PropsWithChildren> = ({ children }) => (
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
+            <ClickableRow>
               <Td>inches</Td>
               <Td>millimetres (mm)</Td>
               <Td isNumeric>25.4</Td>
-            </Tr>
-            <Tr>
+            </ClickableRow>
+            <ClickableRow>
               <Td>feet</Td>
               <Td>centimetres (cm)</Td>
               <Td isNumeric>30.48</Td>
-            </Tr>
-            <Tr>
+            </ClickableRow>
+            <ClickableRow>
               <Td>yards</Td>
               <Td>metres (m)</Td>
               <Td isNumeric>0.91444</Td>
-            </Tr>
+            </ClickableRow>
           </Tbody>
         </Table>
       </TableContainer>
