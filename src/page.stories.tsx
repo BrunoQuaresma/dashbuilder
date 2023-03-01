@@ -33,6 +33,7 @@ import { Tag } from "./Tag";
 import { ClickableRow } from "./ClickableRow";
 import {
   Form,
+  FormActions,
   FormFields,
   FormSection,
   FormSectionDescription,
@@ -232,6 +233,11 @@ const NewResourceTemplate: FC<PropsWithChildren> = ({ children }) => (
             </FormControl>
           </FormFields>
         </FormSection>
+
+        <FormActions>
+          <Button variant="outline">Cancel</Button>
+          <Button colorScheme="blue">Add payment</Button>
+        </FormActions>
       </Form>
     </Main>
   </>

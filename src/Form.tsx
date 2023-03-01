@@ -66,3 +66,11 @@ export const FormSectionDescription: FC<FormSectionDescriptionProps> = (
 ) => {
   return <Text fontSize="md" color="gray.600" {...textProps} />;
 };
+
+export type FormActionsProps = ComponentProps<typeof Box>;
+
+export const FormActions: FC<FormActionsProps> = (boxProps) => {
+  return (
+    <Box display="flex" justifyContent="end" gap={2} mt={12} {...boxProps} />
+  );
+};
