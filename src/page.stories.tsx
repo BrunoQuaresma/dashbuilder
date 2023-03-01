@@ -10,6 +10,9 @@ import {
   BreadcrumbLink,
   Link,
   Tr,
+  FormControl,
+  FormLabel,
+  Input,
 } from "@chakra-ui/react";
 import { FC, PropsWithChildren } from "react";
 import { Data, DataFluid, DataInfo, DataLabel } from "./Data";
@@ -28,6 +31,13 @@ import { NextButton, Pagination, PreviousButton } from "./Pagination";
 import { SearchField } from "./SearchField";
 import { Tag } from "./Tag";
 import { ClickableRow } from "./ClickableRow";
+import {
+  Form,
+  FormFields,
+  FormSection,
+  FormSectionDescription,
+  FormSectionTitle,
+} from "./Form";
 
 export default {
   component: Navbar,
@@ -147,3 +157,84 @@ const ResourceTemplate: FC<PropsWithChildren> = ({ children }) => (
 );
 
 export const ResourcePage = ResourceTemplate.bind({});
+
+const NewResourceTemplate: FC<PropsWithChildren> = ({ children }) => (
+  <>
+    <NavbarTemplate />
+
+    <Header>
+      <HeaderGroup>
+        <HeaderBreadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">Payments</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#" isCurrentPage>
+              New payment
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </HeaderBreadcrumb>
+
+        <HeaderTitle>New payment</HeaderTitle>
+      </HeaderGroup>
+
+      <HeaderRight>
+        <Button size="sm" variant="outline">
+          Cancel
+        </Button>
+        <Button size="sm" colorScheme="blue">
+          Add payment
+        </Button>
+      </HeaderRight>
+    </Header>
+
+    <Main>
+      <Form>
+        <FormSection>
+          <FormSectionTitle>User info</FormSectionTitle>
+          <FormSectionDescription>
+            Enter the user details to verify the payment
+          </FormSectionDescription>
+
+          <FormFields>
+            <FormControl isRequired>
+              <FormLabel>First name</FormLabel>
+              <Input />
+            </FormControl>
+
+            <FormControl isRequired>
+              <FormLabel>Last name</FormLabel>
+              <Input />
+            </FormControl>
+
+            <FormControl isRequired>
+              <FormLabel>Email</FormLabel>
+              <Input />
+            </FormControl>
+          </FormFields>
+        </FormSection>
+
+        <FormSection>
+          <FormSectionTitle>Payment details</FormSectionTitle>
+          <FormSectionDescription>
+            Set the payment details below
+          </FormSectionDescription>
+
+          <FormFields>
+            <FormControl isRequired>
+              <FormLabel>Value</FormLabel>
+              <Input />
+            </FormControl>
+
+            <FormControl isRequired>
+              <FormLabel>Due date</FormLabel>
+              <Input />
+            </FormControl>
+          </FormFields>
+        </FormSection>
+      </Form>
+    </Main>
+  </>
+);
+
+export const NewResourcePage = NewResourceTemplate.bind({});
