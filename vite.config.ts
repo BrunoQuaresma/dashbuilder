@@ -13,9 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "dashy",
+      name: "dashbuilder",
       formats: ["es", "umd"],
-      fileName: (format) => `dashy.${format}.js`,
+      fileName: (format) => `dashbuilder.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom", "@chakra-ui/react"],

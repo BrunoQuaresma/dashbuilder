@@ -1,5 +1,5 @@
 {
-  "name": "dashy",
+  "name": "dashbuilder",
   "author": "Bruno Quaresma",
   "version": "0.0.1",
   "license": "MIT",
@@ -37,13 +37,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/dashy.umd.js",
-  "module": "./dist/dashy.es.js",
+  "main": "./dist/dashbuilder.umd.js",
+  "module": "./dist/dashbuilder.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/dashy.es.js",
-      "require": "./dist/dashy.umd.js"
+      "import": "./dist/dashbuilder.es.js",
+      "require": "./dist/dashbuilder.umd.js"
     }
   }
 }
