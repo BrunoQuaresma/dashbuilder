@@ -11,7 +11,6 @@ import {
   HeaderTitle,
   HeaderSubtitle,
   HeaderRight,
-  HeaderCrumb,
 } from "./Header";
 
 export const HeaderTemplate: ComponentStory<typeof Header> = () => (
