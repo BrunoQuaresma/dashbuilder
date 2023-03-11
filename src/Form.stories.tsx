@@ -1,12 +1,12 @@
 import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { ComponentStory } from "@storybook/react";
-import { FC, PropsWithChildren } from "react";
 import {
   Form,
   FormActions,
   FormFields,
   FormSection,
   FormSectionDescription,
+  FormSectionDetails,
   FormSectionTitle,
 } from "./Form";
 import { Main } from "./Main";
@@ -20,10 +20,12 @@ const FormTemplate: ComponentStory<typeof Form> = (args) => (
   <Main>
     <Form {...args}>
       <FormSection>
-        <FormSectionTitle>User info</FormSectionTitle>
-        <FormSectionDescription>
-          Enter the user details to verify the payment
-        </FormSectionDescription>
+        <FormSectionDetails>
+          <FormSectionTitle>User info</FormSectionTitle>
+          <FormSectionDescription>
+            Enter the user details to verify the payment
+          </FormSectionDescription>
+        </FormSectionDetails>
 
         <FormFields>
           <FormControl isRequired>
@@ -44,10 +46,12 @@ const FormTemplate: ComponentStory<typeof Form> = (args) => (
       </FormSection>
 
       <FormSection>
-        <FormSectionTitle>Payment details</FormSectionTitle>
-        <FormSectionDescription>
-          Set the payment details below
-        </FormSectionDescription>
+        <FormSectionDetails>
+          <FormSectionTitle>Payment details</FormSectionTitle>
+          <FormSectionDescription>
+            Set the payment details below
+          </FormSectionDescription>
+        </FormSectionDetails>
 
         <FormFields>
           <FormControl isRequired>
@@ -71,3 +75,8 @@ const FormTemplate: ComponentStory<typeof Form> = (args) => (
 );
 
 export const VerticalForm = FormTemplate.bind({});
+
+export const HorizontalForm = FormTemplate.bind({});
+HorizontalForm.args = {
+  direction: "horizontal",
+};

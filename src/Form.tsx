@@ -5,22 +5,45 @@ import {
   Container,
   Text,
 } from "@chakra-ui/react";
-import { ComponentProps, FC, PropsWithChildren } from "react";
+import {
+  ComponentProps,
+  createContext,
+  FC,
+  HTMLProps,
+  PropsWithChildren,
+  useContext,
+} from "react";
 
-export type FormProps = {
-  containerProps?: ComponentProps<typeof Container>;
-  formProps?: ChakraComponent<"form", {}>;
+type FormContextValue = {
+  direction: "horizontal" | "vertical";
 };
 
-export const Form: FC<PropsWithChildren<FormProps>> = ({
-  children,
-  containerProps,
-  formProps,
+const defaultFormContextValue: FormContextValue = {
+  direction: "vertical",
+};
+
+const FormContext = createContext<FormContextValue>(defaultFormContextValue);
+
+export type FormProps = ComponentProps<typeof Container> &
+  HTMLProps<HTMLFormElement> & { direction?: FormContextValue["direction"] };
+
+export const Form: FC<FormProps> = ({
+  direction = "vertical",
+  ...formProps
 }) => {
+  const maxW = direction === "vertical" ? "lg" : "4xl";
+
   return (
-    <Container maxW="lg" {...containerProps}>
-      <chakra.form {...formProps}>{children}</chakra.form>
-    </Container>
+    <FormContext.Provider value={{ direction }}>
+      <Container
+        as="form"
+        maxW={maxW}
+        display="flex"
+        flexDir="column"
+        gap={12}
+        {...formProps}
+      />
+    </FormContext.Provider>
   );
 };
 
@@ -29,10 +52,10 @@ export type FormFieldsProps = ComponentProps<typeof Box>;
 export const FormFields: FC<FormFieldsProps> = (boxProps) => {
   return (
     <Box
+      w="full"
       display="flex"
       flexDirection="column"
       gap={4}
-      mt={8}
       __css={{ ":first-child": { mt: 0 } }}
       {...boxProps}
     />
@@ -44,10 +67,12 @@ export type FormSectionProps = PropsWithChildren<
 >;
 
 export const FormSection: FC<FormSectionProps> = (fieldsetProps) => {
+  const { direction } = useContext(FormContext);
   return (
     <chakra.fieldset
-      mt={12}
-      __css={{ ":first-child": { mt: 0 } }}
+      display="flex"
+      flexDirection={direction === "vertical" ? "column" : "row"}
+      gap={8}
       {...fieldsetProps}
     />
   );
@@ -67,10 +92,14 @@ export const FormSectionDescription: FC<FormSectionDescriptionProps> = (
   return <Text fontSize="md" color="gray.600" {...textProps} />;
 };
 
+export type FormSectionDetailsProps = ComponentProps<typeof Box>;
+
+export const FormSectionDetails: FC<FormSectionDetailsProps> = (boxProps) => {
+  return <Box w="full" {...boxProps} />;
+};
+
 export type FormActionsProps = ComponentProps<typeof Box>;
 
 export const FormActions: FC<FormActionsProps> = (boxProps) => {
-  return (
-    <Box display="flex" justifyContent="end" gap={2} mt={12} {...boxProps} />
-  );
+  return <Box display="flex" justifyContent="end" gap={2} {...boxProps} />;
 };
